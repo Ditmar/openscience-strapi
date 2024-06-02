@@ -1,4 +1,3 @@
-# Use una imagen base de Node.js
 FROM node:18-alpine
 ENV HOST some.host.com
 ENV NODE_ENV production
