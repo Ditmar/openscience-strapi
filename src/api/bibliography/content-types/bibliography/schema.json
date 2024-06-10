@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bibliographies",
+  "info": {
+    "singularName": "bibliography",
+    "pluralName": "bibliographies",
+    "displayName": "Bibliography",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "publicType": {
+      "type": "string",
+      "required": true
+    },
+    "autorLastName": {
+      "type": "string",
+      "required": true
+    },
+    "authorInititals": {
+      "type": "string",
+      "required": true
+    },
+    "publicationYear": {
+      "required": true,
+      "type": "float"
+    },
+    "publicationTitle": {
+      "type": "string",
+      "required": true
+    },
+    "volume": {
+      "type": "string",
+      "required": true
+    },
+    "editionNumber": {
+      "type": "string",
+      "required": true
+    },
+    "Pages": {
+      "type": "string",
+      "required": true
+    },
+    "editonInitials": {
+      "type": "string",
+      "required": true
+    },
+    "editorLastName": {
+      "type": "string",
+      "required": true
+    },
+    "publicationPlace": {
+      "type": "string",
+      "required": true
+    },
+    "Editor": {
+      "type": "string",
+      "required": true
+    },
+    "electronicAddress": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
