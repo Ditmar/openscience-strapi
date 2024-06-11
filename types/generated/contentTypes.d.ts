@@ -362,6 +362,49 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiBibliographyBibliography extends Schema.CollectionType {
+  collectionName: 'bibliographies';
+  info: {
+    singularName: 'bibliography';
+    pluralName: 'bibliographies';
+    displayName: 'Bibliography';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    publicType: Attribute.String & Attribute.Required;
+    autorLastName: Attribute.String & Attribute.Required;
+    authorInititals: Attribute.String & Attribute.Required;
+    publicationTitle: Attribute.String & Attribute.Required;
+    volume: Attribute.String & Attribute.Required;
+    editionNumber: Attribute.String & Attribute.Required;
+    Pages: Attribute.String & Attribute.Required;
+    editonInitials: Attribute.String & Attribute.Required;
+    editorLastName: Attribute.String & Attribute.Required;
+    publicationPlace: Attribute.String & Attribute.Required;
+    Editor: Attribute.String & Attribute.Required;
+    electronicAddress: Attribute.String & Attribute.Required;
+    publicationYear: Attribute.BigInteger & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::bibliography.bibliography',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::bibliography.bibliography',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -798,6 +841,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::bibliography.bibliography': ApiBibliographyBibliography;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
