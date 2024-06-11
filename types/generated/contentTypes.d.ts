@@ -362,49 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiBibliographyBibliography extends Schema.CollectionType {
-  collectionName: 'bibliographies';
-  info: {
-    singularName: 'bibliography';
-    pluralName: 'bibliographies';
-    displayName: 'Bibliography';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    publicType: Attribute.String & Attribute.Required;
-    autorLastName: Attribute.String & Attribute.Required;
-    authorInititals: Attribute.String & Attribute.Required;
-    publicationTitle: Attribute.String & Attribute.Required;
-    volume: Attribute.String & Attribute.Required;
-    editionNumber: Attribute.String & Attribute.Required;
-    Pages: Attribute.String & Attribute.Required;
-    editonInitials: Attribute.String & Attribute.Required;
-    editorLastName: Attribute.String & Attribute.Required;
-    publicationPlace: Attribute.String & Attribute.Required;
-    Editor: Attribute.String & Attribute.Required;
-    electronicAddress: Attribute.String & Attribute.Required;
-    publicationYear: Attribute.BigInteger & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::bibliography.bibliography',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::bibliography.bibliography',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -831,6 +788,140 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAuthorAuthor extends Schema.CollectionType {
+  collectionName: 'authors';
+  info: {
+    singularName: 'author';
+    pluralName: 'authors';
+    displayName: 'Author';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    FullName: Attribute.String & Attribute.Required;
+    Articles: Attribute.String & Attribute.Required;
+    institutionalAffiliation: Attribute.String & Attribute.Required;
+    Email: Attribute.String & Attribute.Required;
+    ORCID: Attribute.String & Attribute.Required;
+    CopyrightRegistration: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBibliographyBibliography extends Schema.CollectionType {
+  collectionName: 'bibliographies';
+  info: {
+    singularName: 'bibliography';
+    pluralName: 'bibliographies';
+    displayName: 'Bibliography';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    publicType: Attribute.String & Attribute.Required;
+    autorLastName: Attribute.String & Attribute.Required;
+    authorInititals: Attribute.String & Attribute.Required;
+    publicationTitle: Attribute.String & Attribute.Required;
+    volume: Attribute.String & Attribute.Required;
+    editionNumber: Attribute.String & Attribute.Required;
+    Pages: Attribute.String & Attribute.Required;
+    editonInitials: Attribute.String & Attribute.Required;
+    editorLastName: Attribute.String & Attribute.Required;
+    publicationPlace: Attribute.String & Attribute.Required;
+    Editor: Attribute.String & Attribute.Required;
+    electronicAddress: Attribute.String & Attribute.Required;
+    publicationYear: Attribute.BigInteger & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::bibliography.bibliography',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::bibliography.bibliography',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMenuMenu extends Schema.CollectionType {
+  collectionName: 'menus';
+  info: {
+    singularName: 'menu';
+    pluralName: 'menus';
+    displayName: 'Menu';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::menu.menu', 'title'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTableTable extends Schema.CollectionType {
+  collectionName: 'tables';
+  info: {
+    singularName: 'table';
+    pluralName: 'tables';
+    displayName: 'Table';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Markdown: Attribute.Blocks & Attribute.Required;
+    Source: Attribute.String & Attribute.Required;
+    Legend: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::table.table',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::table.table',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -841,7 +932,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::bibliography.bibliography': ApiBibliographyBibliography;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -850,6 +940,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::author.author': ApiAuthorAuthor;
+      'api::bibliography.bibliography': ApiBibliographyBibliography;
+      'api::menu.menu': ApiMenuMenu;
+      'api::table.table': ApiTableTable;
     }
   }
 }

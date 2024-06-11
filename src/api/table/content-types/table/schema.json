@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tables",
+  "info": {
+    "singularName": "table",
+    "pluralName": "tables",
+    "displayName": "Table"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Markdown": {
+      "type": "blocks",
+      "required": true
+    },
+    "Source": {
+      "type": "string",
+      "required": true
+    },
+    "Legend": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
