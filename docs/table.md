@@ -14,14 +14,6 @@
 4. **Leyenda de la Tabla (legend)**:
    - Describe la tabla o proporciona cualquier otra información relevante en este campo.
 
-## Uso del Componente "Table" en la colección "Thesis"
-
-**Paso 1.** Selecciona la colección **"Thesis"** en el **"Content-Types Builder"**.
-**Paso 2.** Añade el componente **"Table"** a la colección:
-   - Edita la colección y añade un nuevo campo de tipo "Component".
-   - Selecciona el componente "Table" y elige si será "Repeatable" o "Single".
-
-**Paso 3.** **Guarda los cambios** en la colección.
 
 ## Datos de Prueba
 
@@ -36,8 +28,3 @@
   ´´´
 3. **Fuente de la Tabla**: Datos obtenidos del sitio web oficial de la empresa.
 4. **Leyenda de la Tabla**: Los precios están en dólares estadounidenses (USD).
-
-**Paso 4:** Verificar y probar
-
-1. **Verifica que el componente se haya añadido correctamente** a la colección.
-2. **Prueba la funcionalidad** añadiendo un nuevo contenido en la colección "Thesis" o "Articles" y asegúrate de que puedes usar el componente "Table" como se espera.

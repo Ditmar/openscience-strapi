@@ -889,6 +889,39 @@ export interface ApiMenuMenu extends Schema.CollectionType {
   };
 }
 
+export interface ApiTableTable extends Schema.CollectionType {
+  collectionName: 'tables';
+  info: {
+    singularName: 'table';
+    pluralName: 'tables';
+    displayName: 'Table';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Markdown: Attribute.Blocks & Attribute.Required;
+    Source: Attribute.String & Attribute.Required;
+    Legend: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::table.table',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::table.table',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -910,6 +943,7 @@ declare module '@strapi/types' {
       'api::author.author': ApiAuthorAuthor;
       'api::bibliography.bibliography': ApiBibliographyBibliography;
       'api::menu.menu': ApiMenuMenu;
+      'api::table.table': ApiTableTable;
     }
   }
 }
