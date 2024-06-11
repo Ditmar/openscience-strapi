@@ -866,42 +866,6 @@ export interface ApiBibliographyBibliography extends Schema.CollectionType {
   };
 }
 
-export interface ApiImageImage extends Schema.CollectionType {
-  collectionName: 'images';
-  info: {
-    singularName: 'image';
-    pluralName: 'images';
-    displayName: 'image';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    source: Attribute.String & Attribute.Required;
-    uri: Attribute.Media & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    legend: Attribute.String & Attribute.Required;
-    article: Attribute.Text & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::image.image',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::image.image',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiMenuMenu extends Schema.CollectionType {
   collectionName: 'menus';
   info: {
@@ -921,6 +885,39 @@ export interface ApiMenuMenu extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTableTable extends Schema.CollectionType {
+  collectionName: 'tables';
+  info: {
+    singularName: 'table';
+    pluralName: 'tables';
+    displayName: 'Table';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Markdown: Attribute.Blocks & Attribute.Required;
+    Source: Attribute.String & Attribute.Required;
+    Legend: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::table.table',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::table.table',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -945,8 +942,8 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::author.author': ApiAuthorAuthor;
       'api::bibliography.bibliography': ApiBibliographyBibliography;
-      'api::image.image': ApiImageImage;
       'api::menu.menu': ApiMenuMenu;
+      'api::table.table': ApiTableTable;
     }
   }
 }
