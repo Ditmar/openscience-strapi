@@ -24,10 +24,6 @@
       "type": "string",
       "required": true
     },
-    "publicationYear": {
-      "required": true,
-      "type": "float"
-    },
     "publicationTitle": {
       "type": "string",
       "required": true
@@ -62,6 +58,10 @@
     },
     "electronicAddress": {
       "type": "string",
+      "required": true
+    },
+    "publicationYear": {
+      "type": "biginteger",
       "required": true
     }
   }

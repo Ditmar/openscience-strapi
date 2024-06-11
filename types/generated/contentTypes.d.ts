@@ -377,7 +377,6 @@ export interface ApiBibliographyBibliography extends Schema.CollectionType {
     publicType: Attribute.String & Attribute.Required;
     autorLastName: Attribute.String & Attribute.Required;
     authorInititals: Attribute.String & Attribute.Required;
-    publicationYear: Attribute.Float & Attribute.Required;
     publicationTitle: Attribute.String & Attribute.Required;
     volume: Attribute.String & Attribute.Required;
     editionNumber: Attribute.String & Attribute.Required;
@@ -387,6 +386,7 @@ export interface ApiBibliographyBibliography extends Schema.CollectionType {
     publicationPlace: Attribute.String & Attribute.Required;
     Editor: Attribute.String & Attribute.Required;
     electronicAddress: Attribute.String & Attribute.Required;
+    publicationYear: Attribute.BigInteger & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
