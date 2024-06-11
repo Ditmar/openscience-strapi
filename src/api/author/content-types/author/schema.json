@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "authors",
+  "info": {
+    "singularName": "author",
+    "pluralName": "authors",
+    "displayName": "Author"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FullName": {
+      "type": "string",
+      "required": true
+    },
+    "Articles": {
+      "type": "string",
+      "required": true
+    },
+    "institutionalAffiliation": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "string",
+      "required": true
+    },
+    "ORCID": {
+      "type": "string",
+      "required": true
+    },
+    "CopyrightRegistration": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
