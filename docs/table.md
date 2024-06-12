@@ -28,3 +28,9 @@
   ´´´
 3. **Fuente de la Tabla**: Datos obtenidos del sitio web oficial de la empresa.
 4. **Leyenda de la Tabla**: Los precios están en dólares estadounidenses (USD).
+4. **Leyenda de la Tabla**: Los precios están en dólares estadounidenses (USD).
+
+**Paso 4:** Verificar y probar
+
+1. **Verifica que el componente se haya añadido correctamente** a la colección.
+2. **Prueba la funcionalidad** añadiendo un nuevo contenido en la colección "Thesis" o "Articles" y asegúrate de que puedes usar el componente "Table" como se espera.
