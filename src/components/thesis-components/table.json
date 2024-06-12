@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_thesis_components_tables",
+  "info": {
+    "displayName": "Table"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Markdown": {
+      "type": "blocks",
+      "required": true
+    },
+    "Source": {
+      "type": "string",
+      "required": true
+    },
+    "Legend": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
