@@ -1,15 +1,9 @@
 {
-  "kind": "collectionType",
-  "collectionName": "tables",
+  "collectionName": "components_thesis_components_tables",
   "info": {
-    "singularName": "table",
-    "pluralName": "tables",
     "displayName": "Table"
   },
-  "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {},
+  "options": {},
   "attributes": {
     "Title": {
       "type": "string",
