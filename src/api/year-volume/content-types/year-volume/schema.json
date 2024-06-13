@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "year_volumes",
+  "info": {
+    "singularName": "year-volume",
+    "pluralName": "year-volumes",
+    "displayName": "Year-Volume",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Year": {
+      "type": "biginteger",
+      "required": true,
+      "max": "2999",
+      "min": "1900"
+    },
+    "Volumes": {
+      "required": true,
+      "type": "biginteger"
+    }
+  }
+}
