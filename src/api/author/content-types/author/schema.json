@@ -34,6 +34,12 @@
     "CopyrightRegistration": {
       "type": "string",
       "required": true
+    },
+    "volume": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::volume.volume",
+      "inversedBy": "Author"
     }
   }
 }
