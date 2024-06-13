@@ -65,7 +65,7 @@ Updates an existing year-volume.
 
 ### Description
 
-Deletes a year-volume by its ID.
+Deletes  a year-volume by its ID.
 
 ### Relations with others collection - types
 
