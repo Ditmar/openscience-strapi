@@ -36,10 +36,6 @@
     "legend": {
       "type": "string",
       "required": true
-    },
-    "article": {
-      "type": "text",
-      "required": true
     }
   }
 }
