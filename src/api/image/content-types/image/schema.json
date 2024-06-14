@@ -4,8 +4,7 @@
   "info": {
     "singularName": "image",
     "pluralName": "images",
-    "displayName": "image",
-    "description": ""
+    "displayName": "image"
   },
   "options": {
     "draftAndPublish": true
@@ -20,24 +19,22 @@
       "type": "string",
       "required": true
     },
-    "uri": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
     "description": {
       "type": "text",
       "required": true
     },
-    "legend": {
-      "type": "string",
+    "uri": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
       "required": true
     },
-    "article": {
+    "legend": {
       "type": "string",
       "required": true
     }

@@ -10,30 +10,6 @@ La colección de imágenes en Strapi permite almacenar y gestionar imágenes rel
 
 Este endpoint brinda acceso a todas las imágenes almacenadas en la colección. Cada imagen contiene información descriptiva, como título, fuente, URL, descripción, leyenda y la relación con un artículo específico.
 
-## Ejemplo de Respuesta
-
-```json
-{
- "data": [
-   {
-     "id": 1,
-     "attributes": {
-       "title": "Imagen de ejemplo",
-       "source": "Unsplash",
-       "uri": [
-         {
-           "url": "/uploads/example_image_1_e8f9b6a3c8.jpg"
-         }
-       ],
-       "description": "Esta es una imagen de ejemplo para ilustrar la documentación.",
-       "legend": "Imagen de ejemplo",
-       "article": 1
-     }
-   }
- ]
-}
-```
-
 ## Campos Requeridos para Publicar
 
 - title: Título de la imagen (string).
@@ -41,7 +17,7 @@ Este endpoint brinda acceso a todas las imágenes almacenadas en la colección. 
 - uri: La imagen en sí, almacenada como un archivo multimedia (media).
 - description: Descripción de la imagen (texto).
 - legend: Leyenda o texto explicativo de la imagen (string).
-- article: Relación con un artículo específico (string).
+
 
 ## Relaciones con Otras Colecciones
 
