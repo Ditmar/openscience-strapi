@@ -21,6 +21,12 @@
     "Volumes": {
       "required": true,
       "type": "biginteger"
+    },
+    "volume": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::volume.volume",
+      "mappedBy": "year_volume"
     }
   }
 }
