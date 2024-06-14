@@ -31,12 +31,6 @@
     "date": {
       "type": "date",
       "required": true
-    },
-    "Author": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::author.author",
-      "mappedBy": "volume"
     }
   }
 }

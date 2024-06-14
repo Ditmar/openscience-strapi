@@ -805,11 +805,6 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
     Email: Attribute.String & Attribute.Required;
     ORCID: Attribute.String & Attribute.Required;
     CopyrightRegistration: Attribute.String & Attribute.Required;
-    volume: Attribute.Relation<
-      'api::author.author',
-      'manyToOne',
-      'api::volume.volume'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
