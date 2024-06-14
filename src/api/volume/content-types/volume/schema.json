@@ -31,6 +31,12 @@
     "date": {
       "type": "date",
       "required": true
+    },
+    "year_volume": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::year-volume.year-volume",
+      "inversedBy": "volume"
     }
   }
 }

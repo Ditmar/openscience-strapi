@@ -6,10 +6,12 @@
 
 ### Description
 
-Obtiene una lista de todos los volúmenes.
+1. Gets a list of volumes.
 
-### Endpoint api/volumes GET example
-Response:
+### Endpoint GET api/volumes Example
+
+**Response:**
+
 ```json
 {
   "data": [
@@ -55,23 +57,46 @@ Response:
     }
   ]
 }
+```
+### Requeriments for publish
 
+- portrait: Media
+- title: Text
+- date: Date
 
+### Relations with others collection - types
+- year_volume: volume
+
+### Population examples
+example 1
+``` json
+{
+    "title": "Volume 1",
+    "date": "2024-06-01",
+    "portrait": {
+        "id": 1
+    },
+    "articles": [1, 2],
+    "year_volume": 1
+}
+```
+example 2
+``` json
+{
+    "title": "Volume 2",
+    "date": "2024-07-01",
+    "portrait": {
+        "id": 2
+    },
+    "articles": [3, 4],
+    "year_volume": 2
+}
+```
 
 ### Roles 
 - public
   - find
   - finOne
-  - create
-- Authenticated
-  - find
-  - findOne
-  - create
-  - update
-  - delete
-- Admin
-  - find
-  - findOne
   - create
   - update
   - delete
