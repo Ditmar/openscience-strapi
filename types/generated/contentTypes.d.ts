@@ -923,39 +923,37 @@ export interface ApiMenuMenu extends Schema.CollectionType {
   };
 }
 
-export interface ApiYearVolumeYearVolume extends Schema.CollectionType {
-  collectionName: 'year_volumes';
+export interface ApiVolumeVolume extends Schema.CollectionType {
+  collectionName: 'volumes';
   info: {
-    singularName: 'year-volume';
-    pluralName: 'year-volumes';
-    displayName: 'Year-Volume';
+    singularName: 'volume';
+    pluralName: 'volumes';
+    displayName: 'Volume';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Year: Attribute.BigInteger &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: '1900';
-          max: '2999';
-        },
-        string
-      >;
-    Volumes: Attribute.BigInteger & Attribute.Required;
+    portrait: Attribute.Media & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
+    year_volume: Attribute.Relation<
+      'api::volume.volume',
+      'oneToOne',
+      'api::year-volume.year-volume'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::year-volume.year-volume',
+      'api::volume.volume',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::year-volume.year-volume',
+      'api::volume.volume',
       'oneToOne',
       'admin::user'
     > &
@@ -1030,6 +1028,7 @@ declare module '@strapi/types' {
       'api::bibliography.bibliography': ApiBibliographyBibliography;
       'api::image.image': ApiImageImage;
       'api::menu.menu': ApiMenuMenu;
+      'api::volume.volume': ApiVolumeVolume;
       'api::year-volume.year-volume': ApiYearVolumeYearVolume;
     }
   }
