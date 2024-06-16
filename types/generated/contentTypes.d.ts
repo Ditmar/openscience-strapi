@@ -866,6 +866,37 @@ export interface ApiBibliographyBibliography extends Schema.CollectionType {
   };
 }
 
+export interface ApiDynamicBannerDynamicBanner extends Schema.CollectionType {
+  collectionName: 'dynamic_banners';
+  info: {
+    singularName: 'dynamic-banner';
+    pluralName: 'dynamic-banners';
+    displayName: 'Dynamic-Banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    redirect: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dynamic-banner.dynamic-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dynamic-banner.dynamic-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiImageImage extends Schema.CollectionType {
   collectionName: 'images';
   info: {
@@ -1026,6 +1057,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::author.author': ApiAuthorAuthor;
       'api::bibliography.bibliography': ApiBibliographyBibliography;
+      'api::dynamic-banner.dynamic-banner': ApiDynamicBannerDynamicBanner;
       'api::image.image': ApiImageImage;
       'api::menu.menu': ApiMenuMenu;
       'api::volume.volume': ApiVolumeVolume;
