@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "authors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::author.author",
+      "inversedBy": "articles"
+    },
+    "complete_text": {
+      "type": "richtext",
+      "required": true
+    },
+    "pdf": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "brief": {
+      "type": "richtext",
+      "required": true
+    },
+    "images": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::image.image"
+    },
+    "bibliographies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bibliography.bibliography"
+    },
+    "volume": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::volume.volume",
+      "inversedBy": "article"
+    },
+    "menus": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::menu.menu"
+    },
+    "Table": {
+      "type": "component",
+      "repeatable": true,
+      "component": "thesis-components.table",
+      "required": true
+    }
+  }
+}

@@ -788,6 +788,68 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiArticleArticle extends Schema.CollectionType {
+  collectionName: 'articles';
+  info: {
+    singularName: 'article';
+    pluralName: 'articles';
+    displayName: 'Article';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
+    authors: Attribute.Relation<
+      'api::article.article',
+      'manyToMany',
+      'api::author.author'
+    >;
+    complete_text: Attribute.RichText & Attribute.Required;
+    pdf: Attribute.Media & Attribute.Required;
+    brief: Attribute.RichText & Attribute.Required;
+    images: Attribute.Relation<
+      'api::article.article',
+      'oneToMany',
+      'api::image.image'
+    >;
+    bibliographies: Attribute.Relation<
+      'api::article.article',
+      'oneToMany',
+      'api::bibliography.bibliography'
+    >;
+    volume: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'api::volume.volume'
+    >;
+    menus: Attribute.Relation<
+      'api::article.article',
+      'oneToMany',
+      'api::menu.menu'
+    >;
+    Table: Attribute.Component<'thesis-components.table', true> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiAuthorAuthor extends Schema.CollectionType {
   collectionName: 'authors';
   info: {
@@ -805,6 +867,11 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
     Email: Attribute.String & Attribute.Required;
     ORCID: Attribute.String & Attribute.Required;
     CopyrightRegistration: Attribute.String & Attribute.Required;
+    articles: Attribute.Relation<
+      'api::author.author',
+      'manyToMany',
+      'api::article.article'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -974,6 +1041,11 @@ export interface ApiVolumeVolume extends Schema.CollectionType {
       'oneToOne',
       'api::year-volume.year-volume'
     >;
+    article: Attribute.Relation<
+      'api::volume.volume',
+      'oneToOne',
+      'api::article.article'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1055,6 +1127,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::bibliography.bibliography': ApiBibliographyBibliography;
       'api::dynamic-banner.dynamic-banner': ApiDynamicBannerDynamicBanner;
