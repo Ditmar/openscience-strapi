@@ -37,6 +37,12 @@
     "legend": {
       "type": "string",
       "required": true
+    },
+    "article": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article.article",
+      "inversedBy": "images"
     }
   }
 }

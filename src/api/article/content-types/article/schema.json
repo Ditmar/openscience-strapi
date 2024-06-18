@@ -31,12 +31,12 @@
       "required": true
     },
     "pdf": {
-      "allowedTypes": [
-        "files"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
     },
     "brief": {
       "type": "richtext",
@@ -45,29 +45,32 @@
     "images": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::image.image"
+      "target": "api::image.image",
+      "mappedBy": "article"
     },
     "bibliographies": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::bibliography.bibliography"
-    },
-    "volume": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::volume.volume",
-      "inversedBy": "article"
+      "target": "api::bibliography.bibliography",
+      "mappedBy": "article"
     },
     "menus": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::menu.menu"
+      "target": "api::menu.menu",
+      "mappedBy": "article"
     },
     "Table": {
       "type": "component",
       "repeatable": true,
       "component": "thesis-components.table",
       "required": true
+    },
+    "volume": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::volume.volume",
+      "inversedBy": "article"
     }
   }
 }

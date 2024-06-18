@@ -820,11 +820,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'oneToMany',
       'api::bibliography.bibliography'
     >;
-    volume: Attribute.Relation<
-      'api::article.article',
-      'oneToOne',
-      'api::volume.volume'
-    >;
     menus: Attribute.Relation<
       'api::article.article',
       'oneToMany',
@@ -832,6 +827,11 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     >;
     Table: Attribute.Component<'thesis-components.table', true> &
       Attribute.Required;
+    volume: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'api::volume.volume'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -915,6 +915,11 @@ export interface ApiBibliographyBibliography extends Schema.CollectionType {
     Editor: Attribute.String & Attribute.Required;
     electronicAddress: Attribute.String & Attribute.Required;
     publicationYear: Attribute.BigInteger & Attribute.Required;
+    article: Attribute.Relation<
+      'api::bibliography.bibliography',
+      'manyToOne',
+      'api::article.article'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -980,6 +985,11 @@ export interface ApiImageImage extends Schema.CollectionType {
     description: Attribute.Text & Attribute.Required;
     uri: Attribute.Media & Attribute.Required;
     legend: Attribute.String & Attribute.Required;
+    article: Attribute.Relation<
+      'api::image.image',
+      'manyToOne',
+      'api::article.article'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1011,6 +1021,11 @@ export interface ApiMenuMenu extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     slug: Attribute.UID<'api::menu.menu', 'title'> & Attribute.Required;
+    article: Attribute.Relation<
+      'api::menu.menu',
+      'manyToOne',
+      'api::article.article'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1036,15 +1051,15 @@ export interface ApiVolumeVolume extends Schema.CollectionType {
     portrait: Attribute.Media & Attribute.Required;
     title: Attribute.String & Attribute.Required;
     date: Attribute.Date & Attribute.Required;
-    year_volume: Attribute.Relation<
-      'api::volume.volume',
-      'oneToOne',
-      'api::year-volume.year-volume'
-    >;
     article: Attribute.Relation<
       'api::volume.volume',
       'oneToOne',
       'api::article.article'
+    >;
+    year_volume: Attribute.Relation<
+      'api::volume.volume',
+      'manyToOne',
+      'api::year-volume.year-volume'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1088,7 +1103,7 @@ export interface ApiYearVolumeYearVolume extends Schema.CollectionType {
     Volumes: Attribute.BigInteger & Attribute.Required;
     volume: Attribute.Relation<
       'api::year-volume.year-volume',
-      'oneToOne',
+      'oneToMany',
       'api::volume.volume'
     >;
     createdAt: Attribute.DateTime;
