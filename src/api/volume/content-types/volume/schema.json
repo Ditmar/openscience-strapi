@@ -32,17 +32,17 @@
       "type": "date",
       "required": true
     },
-    "year_volume": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::year-volume.year-volume",
-      "inversedBy": "volume"
-    },
     "article": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::article.article",
       "mappedBy": "volume"
+    },
+    "year_volume": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::year-volume.year-volume",
+      "inversedBy": "volume"
     }
   }
 }

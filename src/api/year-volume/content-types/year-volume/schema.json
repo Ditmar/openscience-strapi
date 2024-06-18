@@ -24,7 +24,7 @@
     },
     "volume": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::volume.volume",
       "mappedBy": "year_volume"
     }
