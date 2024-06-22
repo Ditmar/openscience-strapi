@@ -1036,6 +1036,36 @@ export interface ApiMenuMenu extends Schema.CollectionType {
   };
 }
 
+export interface ApiSeoSeo extends Schema.CollectionType {
+  collectionName: 'seos';
+  info: {
+    singularName: 'seo';
+    pluralName: 'seos';
+    displayName: 'SEO';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    meta_title: Attribute.String & Attribute.Required & Attribute.Unique;
+    meta_description: Attribute.String & Attribute.Required & Attribute.Unique;
+    og_title: Attribute.String & Attribute.Required & Attribute.Unique;
+    og_type: Attribute.String & Attribute.Required;
+    og_image: Attribute.String & Attribute.Required;
+    og_url: Attribute.String & Attribute.Required;
+    og_image_width: Attribute.String & Attribute.Required;
+    og_image_height: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::seo.seo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::seo.seo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiVolumeVolume extends Schema.CollectionType {
   collectionName: 'volumes';
   info: {
@@ -1148,6 +1178,7 @@ declare module '@strapi/types' {
       'api::dynamic-banner.dynamic-banner': ApiDynamicBannerDynamicBanner;
       'api::image.image': ApiImageImage;
       'api::menu.menu': ApiMenuMenu;
+      'api::seo.seo': ApiSeoSeo;
       'api::volume.volume': ApiVolumeVolume;
       'api::year-volume.year-volume': ApiYearVolumeYearVolume;
     }
