@@ -31,10 +31,6 @@
       "type": "string",
       "required": true
     },
-    "og_image": {
-      "type": "string",
-      "required": true
-    },
     "og_url": {
       "type": "string",
       "required": true
@@ -45,6 +41,15 @@
     },
     "og_image_height": {
       "type": "string",
+      "required": true
+    },
+    "og_image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
       "required": true
     }
   }

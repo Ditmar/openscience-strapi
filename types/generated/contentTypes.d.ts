@@ -1052,10 +1052,10 @@ export interface ApiSeoSeo extends Schema.CollectionType {
     meta_description: Attribute.String & Attribute.Required & Attribute.Unique;
     og_title: Attribute.String & Attribute.Required & Attribute.Unique;
     og_type: Attribute.String & Attribute.Required;
-    og_image: Attribute.String & Attribute.Required;
     og_url: Attribute.String & Attribute.Required;
     og_image_width: Attribute.String & Attribute.Required;
     og_image_height: Attribute.String & Attribute.Required;
+    og_image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
