@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seos",
+  "info": {
+    "singularName": "seo",
+    "pluralName": "seos",
+    "displayName": "SEO",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "meta_title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "meta_description": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "og_title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "og_type": {
+      "type": "string",
+      "required": true
+    },
+    "og_url": {
+      "type": "string",
+      "required": true
+    },
+    "og_image_width": {
+      "type": "string",
+      "required": true
+    },
+    "og_image_height": {
+      "type": "string",
+      "required": true
+    },
+    "og_image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
