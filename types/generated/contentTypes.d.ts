@@ -1184,3 +1184,36 @@ declare module '@strapi/types' {
     }
   }
 }
+
+
+export interface ApiStaticBannerStaticBanner extends Schema.CollectionType {
+  collectionName: 'static_banners';
+  info: {
+    singularName: 'static-banner';
+    pluralName: 'static-banners';
+    displayName: 'Static Banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
+    service: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::static-banner.static-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::static-banner.static-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
