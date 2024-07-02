@@ -1036,39 +1036,6 @@ export interface ApiMenuMenu extends Schema.CollectionType {
   };
 }
 
-export interface ApiMetaInformationMetaInformation
-  extends Schema.CollectionType {
-  collectionName: 'meta_informations';
-  info: {
-    singularName: 'meta-information';
-    pluralName: 'meta-informations';
-    displayName: 'MetaInformation';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    path: Attribute.String;
-    logoDesktop: Attribute.Media;
-    logoMobile: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::meta-information.meta-information',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::meta-information.meta-information',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiSeoSeo extends Schema.CollectionType {
   collectionName: 'seos';
   info: {
@@ -1211,7 +1178,6 @@ declare module '@strapi/types' {
       'api::dynamic-banner.dynamic-banner': ApiDynamicBannerDynamicBanner;
       'api::image.image': ApiImageImage;
       'api::menu.menu': ApiMenuMenu;
-      'api::meta-information.meta-information': ApiMetaInformationMetaInformation;
       'api::seo.seo': ApiSeoSeo;
       'api::volume.volume': ApiVolumeVolume;
       'api::year-volume.year-volume': ApiYearVolumeYearVolume;
