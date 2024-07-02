@@ -1,0 +1,29 @@
+{
+    "kind": "collectionType",
+    "collectionName": "static_banners",
+    "info": {
+      "singularName": "static-banner",
+      "pluralName": "static-banners",
+      "displayName": "Static Banner",
+      "description": "Modelo para gestionar la información de los banners estáticos."
+    },
+    "options": {
+      "draftAndPublish": false
+    },
+    "attributes": {
+      "image": {
+        "type": "media",
+        "multiple": false,
+        "required": true
+      },
+      "url": {
+        "type": "string",
+        "required": true
+      },
+      "service": {
+        "type": "string",
+        "required": true
+      }
+    }
+  }
+  
